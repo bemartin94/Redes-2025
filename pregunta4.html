@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARP - Respuesta del Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="header">
+            <h1>🔍 ARP (Address Resolution Protocol)</h1>
+            <p>El traductor de direcciones de red</p>
+        </div>
+        
+        <div class="content">
+            <div class="answer-badge">
+                ✅ ¡Respuesta Correcta!
+            </div>
+
+            <div class="correct-answer">
+                🎯 Traduce una dirección IP a una dirección MAC
+            </div>
+            
+            <div class="explanation-section">
+                <h3>¿Qué es ARP?</h3>
+                <p>
+                    <strong>ARP (Address Resolution Protocol)</strong> es el protocolo encargado de traducir direcciones IP (Capa 3) a direcciones MAC (Capa 2) en redes locales.
+                </p>
+                <p>
+                    Es fundamental para que los dispositivos puedan comunicarse en una red Ethernet, ya que necesitan conocer la dirección MAC del destino para enviar las tramas correctamente.
+                </p>
+            </div>
+
+            <div class="problem-scenario">
+                <div class="scenario-card problem">
+                    <h4>❓ El Problema</h4>
+                    <p>
+                        Cuando un dispositivo quiere enviar datos:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • Conoce la IP de destino<br>
+                        • NO conoce la MAC de destino<br>
+                        • Necesita la MAC para crear la trama<br>
+                        • Sin MAC = Sin comunicación<br>
+                        • ¿Cómo obtener la MAC?
+                    </p>
+                </div>
+                
+                <div class="scenario-card solution">
+                    <h4>✅ La Solución ARP</h4>
+                    <p>
+                        ARP resuelve este problema:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • Envía ARP Request (broadcast)<br>
+                        • "¿Quién tiene la IP X.X.X.X?"<br>
+                        • El dueño responde con su MAC<br>
+                        • Se guarda en la tabla ARP<br>
+                        • ¡Comunicación establecida!
+                    </p>
+                </div>
+            </div>
+
+            <!--<div class="network-diagram">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">📡 Proceso ARP en Acción</h3>
+                
+                <div class="network-visual">
+                    <div class="switch application">PC-A<br>192.168.1.10</div>
+                    <div class="connection"></div>
+                    <div class="switch transport">Switch</div>
+                    <div class="connection"></div>
+                    <div class="switch internet">PC-B<br>192.168.1.20</div>
+                </div>
+                
+                <div style="margin: 20px 0; padding: 15px; background: #e8f4fd; border-radius: 10px; border-left: 5px solid #48cab2;">
+                    <strong>Escenario:</strong> PC-A (192.168.1.10) quiere enviar datos a PC-B (192.168.1.20)
+                </div>
+                
+                <div class="network-visual" style="margin-top: 30px;">
+                    <div class="switch network">ARP Request<br>¿MAC de 192.168.1.20?</div>
+                    <div class="connection blocked">📢</div>
+                    <div class="switch application">Broadcast<br>FF:FF:FF:FF:FF:FF</div>
+                </div>
+                
+                <p style="color: #666; margin-top: 15px;">
+                    📢 ARP Request se envía por broadcast a toda la red
+                </p>
+            </div>-->
+
+            <div class="interactive-demo">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">🚀 Simulación ARP</h3>
+                <p style="margin-bottom: 20px;">Observa cómo ARP traduce IP a MAC:</p>
+                
+                <button class="demo-button" onclick="toggleArpProcess()">
+                    🔍 Simular Proceso ARP
+                </button>
+                
+                <div class="stp-process" id="arpProcess">
+                    <h4 style="color: #667eea; margin-bottom: 15px;">📨 Intercambio ARP Paso a Paso</h4>
+                    
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div><strong>Check ARP Table:</strong> PC-A busca 192.168.1.20 en su tabla ARP</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div><strong>ARP Request:</strong> No está en tabla, envía broadcast "¿Quién tiene 192.168.1.20?"</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div><strong>Broadcast Storm:</strong> Todos los dispositivos reciben el ARP Request</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div><strong>ARP Reply:</strong> PC-B responde "Soy 192.168.1.20, mi MAC es AA:BB:CC:DD:EE:FF"</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div><strong>ARP Table Update:</strong> PC-A guarda la asociación IP ↔ MAC en su tabla</div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px; font-size: 1.2rem; color: #48cab2; font-weight: bold;">
+                        🎉 ¡Traducción completada! Comunicación establecida
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="layer-cards">
+                <div class="layer-card application">
+                    <div class="layer-number">📋</div>
+                    <div class="layer-name">ARP Table</div>
+                    <div class="layer-description">Cache de asociaciones IP ↔ MAC</div>
+                </div>
+                
+                <div class="layer-card transport">
+                    <div class="layer-number">📢</div>
+                    <div class="layer-name">ARP Request</div>
+                    <div class="layer-description">Pregunta broadcast por una IP específica</div>
+                </div>
+                
+                <div class="layer-card internet">
+                    <div class="layer-number">📩</div>
+                    <div class="layer-name">ARP Reply</div>
+                    <div class="layer-description">Respuesta unicast con la MAC correspondiente</div>
+                </div>
+                
+                <div class="layer-card network">
+                    <div class="layer-number">⏰</div>
+                    <div class="layer-name">ARP Timeout</div>
+                    <div class="layer-description">Las entradas expiran y se renuevan</div>
+                </div>
+            </div>-->
+
+            <div class="problem-scenario" style="margin-top: 30px;">
+                <div class="scenario-card problem">
+                    <h4>🔍 Detalles Técnicos</h4>
+                    <p>
+                        Información clave sobre ARP:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • Opera en Capa 2 (Data Link)<br>
+                        • Solo funciona en la red local<br>
+                        • ARP Request = Broadcast<br>
+                        • ARP Reply = Unicast<br>
+                        • Timeout típico: 4 horas
+                    </p>
+                </div>
+                
+                <div class="scenario-card solution">
+                    <h4>🛡️ Seguridad ARP</h4>
+                    <p>
+                        Consideraciones de seguridad:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • <strong>ARP Spoofing:</strong> Suplantación de identidad<br>
+                        • <strong>ARP Poisoning:</strong> Envenenamiento de tablas<br>
+                        • <strong>Soluciones:</strong> ARP estático, DAI<br>
+                        • <strong>Monitoreo:</strong> Detectar cambios inusuales
+                    </p>
+                </div>
+            </div>
+
+            <div class="fun-fact">
+                <h4>🎯 Dato Curioso</h4>
+                <p>
+                    ARP es un protocolo "stateless" que confía ciegamente en las respuestas. Si recibes un ARP Reply, tu sistema actualizará su tabla ARP sin verificar si realmente solicitaste esa información. Esta característica hace posibles ataques como ARP Spoofing, donde un atacante puede "secuestrar" el tráfico enviando respuestas ARP falsas.
+                </p>
+            </div>
+
+            <!--<div class="network-diagram" style="background: linear-gradient(45deg, #f0f8ff, #e6f3ff);">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">📊 Tabla ARP de Ejemplo</h3>
+                
+                <div style="background: white; padding: 20px; border-radius: 10px; font-family: monospace;">
+                    <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 20px; font-weight: bold; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 15px;">
+                        <div>IP Address</div>
+                        <div>MAC Address</div>
+                        <div>Type</div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 20px; padding: 8px 0; border-bottom: 1px solid #eee;">
+                        <div style="color: #667eea;">192.168.1.1</div>
+                        <div style="color: #48cab2;">00:1A:2B:3C:4D:5E</div>
+                        <div style="color: #feca57;">Dynamic</div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 20px; padding: 8px 0; border-bottom: 1px solid #eee;">
+                        <div style="color: #667eea;">192.168.1.20</div>
+                        <div style="color: #48cab2;">AA:BB:CC:DD:EE:FF</div>
+                        <div style="color: #feca57;">Dynamic</div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 20px; padding: 8px 0;">
+                        <div style="color: #667eea;">192.168.1.100</div>
+                        <div style="color: #48cab2;">11:22:33:44:55:66</div>
+                        <div style="color: #ff6b6b;">Static</div>
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="explanation-section">
+                <h3>💡 ¿Por qué es crucial ARP?</h3>
+                <p>
+                    ARP es esencial porque resuelve el problema de traducción entre capas:
+                </p>
+                <p style="padding-left: 20px;">
+                    🌐 <strong>Capa 3 a Capa 2:</strong> Convierte direcciones lógicas en físicas<br>
+                    📡 <strong>Comunicación local:</strong> Permite el envío de tramas en Ethernet<br>
+                    💾 <strong>Eficiencia:</strong> Cache evita consultas repetidas<br>
+                    🔄 <strong>Transparente:</strong> El usuario no ve este proceso interno
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleArpProcess() {
+            const arpProcess = document.getElementById('arpProcess');
+            const button = document.querySelector('.demo-button');
+            
+            if (arpProcess.classList.contains('active')) {
+                arpProcess.classList.remove('active');
+                button.textContent = '🔍 Simular Proceso ARP';
+                button.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+            } else {
+                arpProcess.classList.add('active');
+                button.textContent = '🔄 Reiniciar Simulación';
+                button.style.background = 'linear-gradient(45deg, #48cab2, #54a0ff)';
+                
+                // Animar los pasos secuencialmente
+                const steps = arpProcess.querySelectorAll('.process-step');
+                steps.forEach((step, index) => {
+                    step.style.animation = 'none';
+                    setTimeout(() => {
+                        step.style.animation = `slideInLeft 0.5s ease forwards`;
+                        step.style.animationDelay = `${index * 0.4}s`;
+                    }, 100);
+                });
+            }
+        }
+
+        // Efectos hover para las tarjetas
+        //document.querySelectorAll('.layer-card').forEach(card => {
+            //card.addEventListener('mouseenter', function() {
+                //this.style.transform = 'translateY(-10px) scale(1.02) rotateY(5deg)';
+            //});
+            
+            //card.addEventListener('mouseleave', function() {
+                //this.style.transform = 'translateY(0) scale(1) rotateY(0deg)';
+            //});
+        //});
+
+        // Simular proceso ARP en el diagrama
+        document.querySelectorAll('.switch').forEach(device => {
+            device.addEventListener('click', function() {
+                if (this.textContent.includes('PC-A')) {
+                    // Simular ARP Request
+                    this.style.background = 'linear-gradient(45deg, #ff6b6b, #feca57)';
+                    setTimeout(() => {
+                        this.style.background = 'linear-gradient(45deg, #ff6b6b10, #ffffff)';
+                    }, 1000);
+                } else if (this.textContent.includes('PC-B')) {
+                    // Simular ARP Reply
+                    this.style.background = 'linear-gradient(45deg, #11998e, #38ef7d)';
+                    setTimeout(() => {
+                        this.style.background = 'linear-gradient(135deg, #48cab210, #ffffff)';
+                    }, 1000);
+                }
+            });
+        });
+
+        // Animación en conexiones para simular tráfico ARP
+        document.querySelectorAll('.connection').forEach((connection, index) => {
+            connection.addEventListener('click', function() {
+                this.style.animation = 'dataFlow 1s ease';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>TCP/IP - Respuesta del Quiz</title>
+    
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="header">
+            <h1>🌐 TCP/IP</h1>
+            <p>El protocolo que conecta al mundo</p>
+        </div>
+        
+        <div class="content">
+            <div class="answer-badge">
+                ✅ ¡Respuesta Correcta!
+            </div>
+
+            <div class="correct-answer">
+                🎯 TCP/IP
+            </div>
+            
+            <div class="explanation-section">
+                <h3>¿Qué es TCP/IP?</h3>
+                <p>
+                    <strong>TCP/IP</strong> (Transmission Control Protocol/Internet Protocol) es el conjunto de protocolos de comunicación que permite que los dispositivos se conecten y comuniquen a través de Internet y redes locales.
+                </p>
+                <p>
+                    Es como el "idioma universal" que hablan todos los dispositivos conectados para entenderse entre sí, desde tu teléfono hasta los servidores de todo el mundo.
+                </p>
+            </div>
+
+            <!--<div class="layer-cards">
+                <div class="layer-card application">
+                    <div class="layer-number">4</div>
+                    <div class="layer-name">Aplicación</div>
+                    <div class="layer-description">HTTP, FTP, SMTP - Los programas que usas</div>
+                </div>
+                
+                <div class="layer-card transport">
+                    <div class="layer-number">3</div>
+                    <div class="layer-name">Transporte</div>
+                    <div class="layer-description">TCP/UDP - Cómo se envían los datos</div>
+                </div>
+                
+                <div class="layer-card internet">
+                    <div class="layer-number">2</div>
+                    <div class="layer-name">Internet</div>
+                    <div class="layer-description">IP - Las direcciones de destino</div>
+                </div>
+                
+                <div class="layer-card network">
+                    <div class="layer-number">1</div>
+                    <div class="layer-name">Red Física</div>
+                    <div class="layer-description">Ethernet, WiFi - La conexión física</div>
+                </div>
+            </div>-->
+
+            <div class="fun-fact">
+                <h4>🎯 Dato Curioso</h4>
+                <p>
+                    TCP/IP fue desarrollado en los años 70 para ARPANET (precursor de Internet). 
+                    ¡Cada vez que envías un mensaje de WhatsApp o ves un video de YouTube, estás usando TCP/IP!
+                </p>
+            </div>
+
+            <div class="interactive-demo">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">🚀 Simulación Interactiva</h3>
+                <p style="margin-bottom: 20px;">Haz clic para ver cómo viajan los datos:</p>
+                
+                <button class="demo-button" onclick="toggleDataFlow()">
+                    📡 Simular Envío de Datos
+                </button>
+                
+                <div class="data-flow" id="dataFlow">
+                    <h4 style="color: #667eea; margin-bottom: 15px;">📨 Enviando: "¡Hola mundo!"</h4>
+                    
+                    <div class="flow-step">
+                        <div class="step-number">1</div>
+                        <div>La aplicación (navegador) prepara el mensaje</div>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="step-number">2</div>
+                        <div>TCP divide el mensaje en paquetes numerados</div>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="step-number">3</div>
+                        <div>IP añade las direcciones de origen y destino</div>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="step-number">4</div>
+                        <div>Los paquetes viajan por la red física (WiFi/Ethernet)</div>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="step-number">5</div>
+                        <div>El destino recibe y reensambla el mensaje</div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px; font-size: 1.2rem; color: #48cab2; font-weight: bold;">
+                        🎉 ¡Mensaje entregado con éxito!
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation-section">
+                <h3>💡 ¿Por qué es importante TCP/IP?</h3>
+                <p>
+                    Sin TCP/IP, Internet no existiría como lo conocemos. Es el estándar que permite que:
+                </p>
+                <p style="padding-left: 20px;">
+                    🌍 <strong>Cualquier dispositivo</strong> se conecte con cualquier otro<br>
+                    📦 <strong>Los datos lleguen completos</strong> y en el orden correcto<br>
+                    🔄 <strong>La comunicación sea confiable</strong> y se recupere de errores<br>
+                    🚀 <strong>Internet funcione</strong> de manera escalable y eficiente
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDataFlow() {
+            const dataFlow = document.getElementById('dataFlow');
+            const button = document.querySelector('.demo-button');
+            
+            if (dataFlow.classList.contains('active')) {
+                dataFlow.classList.remove('active');
+                button.textContent = '📡 Simular Envío de Datos';
+                button.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+            } else {
+                dataFlow.classList.add('active');
+                button.textContent = '🔄 Reiniciar Simulación';
+                button.style.background = 'linear-gradient(45deg, #48cab2, #54a0ff)';
+                
+                // Animar los pasos secuencialmente
+                const steps = dataFlow.querySelectorAll('.flow-step');
+                steps.forEach((step, index) => {
+                    step.style.animation = 'none';
+                    setTimeout(() => {
+                        step.style.animation = `slideInLeft 0.5s ease forwards`;
+                        step.style.animationDelay = `${index * 0.2}s`;
+                    }, 100);
+                });
+            }
+        }
+
+        // Animación adicional para los pasos
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInLeft {
+                from {
+                    opacity: 0;
+                    transform: translateX(-50px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Efectos hover para las tarjetas
+        document.querySelectorAll('.layer-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02) rotateY(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotateY(0deg)';
+            });
+        });
+    </script>
+</body>
+</html>

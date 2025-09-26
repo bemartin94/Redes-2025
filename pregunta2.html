@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respuesta 2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="header">
+            <h1>🌳 Spanning Tree Protocol (STP)</h1>
+            <p>Evitando bucles en redes de conmutadores</p>
+        </div>
+        
+        <div class="content">
+            <div class="answer-badge">
+                ✅ ¡Respuesta Correcta!
+            </div>
+
+            <div class="correct-answer">
+                🎯 Prevenir bucles de switching y tormentas de difusión
+            </div>
+            
+            <div class="explanation-section">
+                <h3>¿Qué es STP?</h3>
+                <p>
+                    <strong>Spanning Tree Protocol (STP)</strong> es un protocolo de red que previene bucles en redes con múltiples switches conectados entre sí.
+                </p>
+                <p>
+                    Su función principal es crear una topología libre de bucles deshabilitando automáticamente enlaces redundantes, pero manteniéndolos como respaldo en caso de fallas.
+                </p>
+            </div>
+
+            <div class="problem-scenario">
+                <div class="scenario-card problem">
+                    <h4>🚨 Problema Sin STP</h4>
+                    <p>
+                        Sin STP, los switches pueden crear bucles infinitos donde los datos circulan eternamente, causando:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • Tormentas de difusión<br>
+                        • Saturación de la red<br>
+                        • Múltiples copias de tramas<br>
+                        • Colapso total de la red
+                    </p>
+                </div>
+                
+                <div class="scenario-card solution">
+                    <h4>✅ Solución Con STP</h4>
+                    <p>
+                        STP identifica y bloquea enlaces que crearían bucles, manteniendo solo un camino activo entre cualquier par de switches.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • Red libre de bucles<br>
+                        • Redundancia para respaldo<br>
+                        • Reconvergencia automática<br>
+                        • Red estable y confiable
+                    </p>
+                </div>
+            </div>
+
+            <div class="network-diagram">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">🔄 Red Con y Sin STP</h3>
+                
+                <div class="network-visual">
+                    <div class="switch root">SW1<br>ROOT</div>
+                    <div class="connection"></div>
+                    <div class="switch">SW2</div>
+                    <div class="connection"></div>
+                    <div class="switch">SW3</div>
+                </div>
+                
+                <div class="network-visual" style="margin-top: 20px;">
+                    <div class="switch">SW2</div>
+                    <div class="connection blocked">❌</div>
+                    <div class="switch">SW3</div>
+                </div>
+                
+                <p style="color: #666; margin-top: 15px;">
+                    ⬆️ El enlace bloqueado previene el bucle pero se activa si falla otro enlace
+                </p>
+            </div>
+
+            <div class="interactive-demo">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">🚀 Proceso STP Paso a Paso</h3>
+                <p style="margin-bottom: 20px;">Descubre cómo STP elimina bucles:</p>
+                
+                <button class="demo-button" onclick="toggleStpProcess()">
+                    🌳 Ver Proceso STP
+                </button>
+                
+                    <div class="stp-process" id="stpProcess">
+                    <h4 style="color: #667eea; margin-bottom: 15px;">🔍 Algoritmo STP en Acción</h4>
+                    
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div><strong>Elección del Root Bridge:</strong> El switch con menor Bridge ID se convierte en la raíz</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div><strong>Cálculo de Rutas:</strong> Cada switch calcula el costo más bajo hacia el Root Bridge</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div><strong>Designación de Puertos:</strong> Se eligen puertos raíz y designados para cada segmento</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div><strong>Bloqueo de Puertos:</strong> Los puertos que crearían bucles se bloquean</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div><strong>Convergencia:</strong> La red alcanza un estado estable sin bucles</div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px; font-size: 1.2rem; color: #48cab2; font-weight: bold;">
+                        🎉 ¡Red libre de bucles lista para operar!
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="fun-fact">
+                <h4>🎯 Dato Importante</h4>
+                <p>
+                    STP fue desarrollado por Radia Perlman en 1985. Aunque STP original toma hasta 50 segundos para converger, las versiones modernas como RSTP (Rapid Spanning Tree) convergen en solo 1-2 segundos. ¡Sin STP, las redes modernas con switches redundantes serían imposibles!
+                </p>
+            </div>
+
+            <div class="explanation-section">
+                <h3>💡 ¿Por qué es crucial STP?</h3>
+                <p>
+                    STP es fundamental porque permite que las redes tengan redundancia sin sufrir los problemas de bucles:
+                </p>
+                <p style="padding-left: 20px;">
+                    🛡️ <strong>Previene colapsos de red</strong> por tormentas de difusión<br>
+                    🔄 <strong>Permite redundancia</strong> con enlaces de respaldo<br>
+                    ⚡ <strong>Reconverge automáticamente</strong> cuando hay fallas<br>
+                    🏗️ <strong>Hace posibles las redes modernas</strong> con alta disponibilidad
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleStpProcess() {
+            const stpProcess = document.getElementById('stpProcess');
+            const button = document.querySelector('.demo-button');
+            
+            if (stpProcess.classList.contains('active')) {
+                stpProcess.classList.remove('active');
+                button.textContent = '🌳 Ver Proceso STP';
+                button.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+            } else {
+                stpProcess.classList.add('active');
+                button.textContent = '🔄 Reiniciar Demo';
+                button.style.background = 'linear-gradient(45deg, #48cab2, #54a0ff)';
+                
+                // Animar los pasos secuencialmente
+                const steps = stpProcess.querySelectorAll('.process-step');
+                steps.forEach((step, index) => {
+                    step.style.animation = 'none';
+                    setTimeout(() => {
+                        step.style.animation = `slideInLeft 0.5s ease forwards`;
+                        step.style.animationDelay = `${index * 0.3}s`;
+                    }, 100);
+                });
+            }
+        }
+
+        // Efectos hover para las tarjetas
+        document.querySelectorAll('.layer-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02) rotateY(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotateY(0deg)';
+            });
+        });
+
+        // Efectos para switches en el diagrama
+        document.querySelectorAll('.switch').forEach(switch_el => {
+            switch_el.addEventListener('click', function() {
+                this.style.transform = 'scale(1.2) rotate(5deg)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>

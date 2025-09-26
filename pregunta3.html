@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSPF - Respuesta del Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="header">
+            <h1>🗺️ OSPF (Open Shortest Path First)</h1>
+            <p>Protocolo de enrutamiento inteligente</p>
+        </div>
+        
+        <div class="content">
+            <div class="answer-badge">
+                ✅ ¡Respuesta Correcta!
+            </div>
+
+            <div class="correct-answer">
+                🎯 A. Estado de Enlace (Link-State)
+            </div>
+            
+            <div class="explanation-section">
+                <h3>¿Qué es OSPF?</h3>
+                <p>
+                    <strong>OSPF (Open Shortest Path First)</strong> es un protocolo de enrutamiento dinámico que utiliza el algoritmo de <strong>Estado de Enlace (Link-State)</strong> para encontrar las rutas más eficientes en la red.
+                </p>
+                <p>
+                    A diferencia de los protocolos de vector distancia, OSPF mantiene un mapa completo de la topología de red, lo que le permite tomar decisiones de enrutamiento más inteligentes.
+                </p>
+            </div>
+
+            <div class="problem-scenario">
+                <div class="scenario-card problem">
+                    <h4>📊 Vector Distancia (RIP)</h4>
+                    <p>
+                        Los protocolos de vector distancia como RIP solo conocen:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • La distancia al destino<br>
+                        • El siguiente salto<br>
+                        • Información limitada<br>
+                        • Convergencia lenta<br>
+                        • Posibles bucles de routing
+                    </p>
+                </div>
+                
+                <div class="scenario-card solution">
+                    <h4>🗺️ Estado de Enlace (OSPF)</h4>
+                    <p>
+                        OSPF mantiene una base de datos completa de la topología:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • Mapa completo de la red<br>
+                        • Algoritmo Dijkstra (SPF)<br>
+                        • Convergencia rápida<br>
+                        • Sin bucles de routing<br>
+                        • Decisiones óptimas
+                    </p>
+                </div>
+            </div>
+
+            <div class="network-diagram">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">🧠 Cómo Funciona OSPF</h3>
+                
+                <div class="network-visual">
+                    <div class="switch application">R1<br>ABR</div>
+                    <div class="connection"></div>
+                    <div class="switch transport">R2</div>
+                    <div class="connection"></div>
+                    <div class="switch internet">R3</div>
+                </div>
+                
+                <div class="network-visual" style="margin-top: 30px;">
+                    <div class="switch network">R4</div>
+                    <div class="connection"></div>
+                    <div class="switch application">R5<br>DR</div>
+                    <div class="connection"></div>
+                    <div class="switch transport">R6</div>
+                </div>
+                
+                <p style="color: #666; margin-top: 15px;">
+                    📡 Cada router conoce toda la topología y calcula las mejores rutas
+                </p>
+            </div>
+
+            <div class="interactive-demo">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">🚀 Proceso OSPF Paso a Paso</h3>
+                <p style="margin-bottom: 20px;">Descubre cómo OSPF construye su mapa de red:</p>
+                
+                <button class="demo-button" onclick="toggleOspfProcess()">
+                    🗺️ Ver Proceso OSPF
+                </button>
+                
+                <div class="stp-process" id="ospfProcess">
+                    <h4 style="color: #667eea; margin-bottom: 15px;">🔍 Algoritmo Link-State en Acción</h4>
+                    
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div><strong>Hello Protocol:</strong> Los routers descubren vecinos y forman adyacencias</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div><strong>LSA Exchange:</strong> Intercambian información de estado de enlace (LSA)</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div><strong>LSDB Building:</strong> Construyen la base de datos de estado de enlace</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div><strong>SPF Algorithm:</strong> Ejecutan Dijkstra para calcular rutas más cortas</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div><strong>Routing Table:</strong> Instalan las mejores rutas en la tabla de enrutamiento</div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px; font-size: 1.2rem; color: #48cab2; font-weight: bold;">
+                        🎉 ¡Red con enrutamiento óptimo y libre de bucles!
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="layer-cards">
+                <div class="layer-card application">
+                    <div class="layer-number">📡</div>
+                    <div class="layer-name">Hello Protocol</div>
+                    <div class="layer-description">Descubrimiento de vecinos y mantenimiento</div>
+                </div>
+                
+                <div class="layer-card transport">
+                    <div class="layer-number">📊</div>
+                    <div class="layer-name">LSA (Link-State Advertisement)</div>
+                    <div class="layer-description">Información del estado de enlaces</div>
+                </div>
+                
+                <div class="layer-card internet">
+                    <div class="layer-number">🗄️</div>
+                    <div class="layer-name">LSDB (Link-State Database)</div>
+                    <div class="layer-description">Base de datos de topología completa</div>
+                </div>
+                
+                <div class="layer-card network">
+                    <div class="layer-number">🧮</div>
+                    <div class="layer-name">Algoritmo SPF (Dijkstra)</div>
+                    <div class="layer-description">Cálculo del camino más corto</div>
+                </div>
+            </div>-->
+
+            <div class="problem-scenario" style="margin-top: 30px;">
+                <div class="scenario-card problem">
+                    <h4>⚡ Ventajas de OSPF</h4>
+                    <p>
+                        Como protocolo Link-State, OSPF ofrece:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • Convergencia rápida (segundos)<br>
+                        • Sin límite de saltos<br>
+                        • Soporte para VLSM<br>
+                        • Autenticación integrada<br>
+                        • Escalabilidad con áreas
+                    </p>
+                </div>
+                
+                <div class="scenario-card solution">
+                    <h4>🏗️ Arquitectura Jerárquica</h4>
+                    <p>
+                        OSPF organiza la red en áreas:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • <strong>Área 0:</strong> Backbone<br>
+                        • <strong>ABR:</strong> Area Border Router<br>
+                        • <strong>DR/BDR:</strong> Designated Router<br>
+                        • <strong>ASBR:</strong> Autonomous System Border Router
+                    </p>
+                </div>
+            </div>
+
+            <div class="fun-fact">
+                <h4>🎯 Dato Técnico</h4>
+                <p>
+                    OSPF utiliza el algoritmo de Dijkstra (también llamado SPF - Shortest Path First) para calcular el árbol de caminos más cortos. Cada router mantiene una copia idéntica de la LSDB (Link-State Database) y ejecuta el algoritmo independientemente. El costo de métrica por defecto es 10⁸/ancho de banda, favoreciendo enlaces más rápidos.
+                </p>
+            </div>
+
+            <div class="explanation-section">
+                <h3>💡 ¿Por qué Link-State es superior?</h3>
+                <p>
+                    El enfoque de Estado de Enlace de OSPF es superior porque:
+                </p>
+                <p style="padding-left: 20px;">
+                    🧠 <strong>Conocimiento completo:</strong> Cada router conoce toda la topología<br>
+                    ⚡ <strong>Decisiones óptimas:</strong> Usa algoritmo Dijkstra para mejores rutas<br>
+                    🔄 <strong>Convergencia rápida:</strong> Cambios se propagan inmediatamente<br>
+                    🛡️ <strong>Libre de bucles:</strong> El algoritmo SPF garantiza rutas sin bucles
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleOspfProcess() {
+            const ospfProcess = document.getElementById('ospfProcess');
+            const button = document.querySelector('.demo-button');
+            
+            if (ospfProcess.classList.contains('active')) {
+                ospfProcess.classList.remove('active');
+                button.textContent = '🗺️ Ver Proceso OSPF';
+                button.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+            } else {
+                ospfProcess.classList.add('active');
+                button.textContent = '🔄 Reiniciar Demo';
+                button.style.background = 'linear-gradient(45deg, #48cab2, #54a0ff)';
+                
+                // Animar los pasos secuencialmente
+                const steps = ospfProcess.querySelectorAll('.process-step');
+                steps.forEach((step, index) => {
+                    step.style.animation = 'none';
+                    setTimeout(() => {
+                        step.style.animation = `slideInLeft 0.5s ease forwards`;
+                        step.style.animationDelay = `${index * 0.3}s`;
+                    }, 100);
+                });
+            }
+        }
+
+        // Efectos hover para las tarjetas
+        document.querySelectorAll('.layer-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02) rotateY(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotateY(0deg)';
+            });
+        });
+
+        // Efectos para routers en el diagrama
+        document.querySelectorAll('.switch').forEach(router => {
+            router.addEventListener('click', function() {
+                // Simular propagación de LSA
+                this.style.animation = 'rootPulse 1s ease';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 1000);
+            });
+        });
+
+        // Simular convergencia OSPF
+        document.querySelectorAll('.connection').forEach(connection => {
+            connection.addEventListener('click', function() {
+                this.style.animation = 'dataFlow 0.5s ease';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
