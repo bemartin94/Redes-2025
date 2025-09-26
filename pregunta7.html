@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 7</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="header">
+            <h1>📱 LTE (Long-Term Evolution)</h1>
+            <p>La evolución a largo plazo de las redes móviles</p>
+        </div>
+        
+        <div class="content">
+            <div class="answer-badge">
+                ✅ ¡Respuesta Correcta!
+            </div>
+
+            <div class="correct-answer">
+                🎯 LTE (Long-Term Evolution)
+            </div>
+            
+            <div class="explanation-section">
+                <h3>¿Qué es LTE?</h3>
+                <p>
+                    <strong>LTE (Long-Term Evolution)</strong> es exactamente lo que describe la pregunta: una evolución a largo plazo de los estándares 3G que proporciona velocidades significativamente mayores y una red basada completamente en IP.
+                </p>
+                <p>
+                    Desarrollado por el 3GPP como la transición natural desde 3G hacia 4G, LTE representa el salto tecnológico más importante en comunicaciones móviles, abandonando completamente los circuitos conmutados por una arquitectura All-IP.
+                </p>
+            </div>
+
+            <div class="problem-scenario">
+                <div class="scenario-card problem">
+                    <h4>📞 Limitaciones de 3G</h4>
+                    <p>
+                        Las redes 3G tenían restricciones importantes:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • Velocidades limitadas (hasta 7.2 Mbps)<br>
+                        • Arquitectura híbrida (circuitos + paquetes)<br>
+                        • Latencia alta (100-500ms)<br>
+                        • Eficiencia espectral baja<br>
+                        • Consumo energético elevado
+                    </p>
+                </div>
+                
+                <div class="scenario-card solution">
+                    <h4>⚡ Revolución LTE</h4>
+                    <p>
+                        LTE resolvió estas limitaciones:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • Velocidades hasta 300 Mbps (DL)<br>
+                        • Arquitectura 100% IP (All-IP)<br>
+                        • Latencia ultra baja (10-20ms)<br>
+                        • Eficiencia espectral 3-5x mayor<br>
+                        • Optimización energética avanzada
+                    </p>
+                </div>
+            </div>
+
+            <div class="network-diagram">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">📡 Arquitectura LTE All-IP</h3>
+                
+                <div class="network-visual">
+                    <div class="switch application">UE<br>(Smartphone)</div>
+                    <div class="connection"></div>
+                    <div class="switch transport">eNodeB<br>(Base Station)</div>
+                    <div class="connection"></div>
+                    <div class="switch internet">EPC<br>(Core Network)</div>
+                </div>
+                
+                <div style="margin: 20px 0; padding: 15px; background: #e8f4fd; border-radius: 10px; border-left: 5px solid #48cab2;">
+                    <strong>All-IP:</strong> Todo el tráfico (voz, datos, video) viaja como paquetes IP, sin circuitos conmutados
+                </div>
+                
+                <div class="network-visual" style="margin-top: 30px;">
+                    <div class="switch network">MME</div>
+                    <div class="connection"></div>
+                    <div class="switch application">S-GW</div>
+                    <div class="connection"></div>
+                    <div class="switch transport">P-GW</div>
+                    <div class="connection"></div>
+                    <div class="switch internet">Internet</div>
+                </div>
+                
+                <p style="color: #666; margin-top: 15px;">
+                    🌐 Red completamente IP desde el dispositivo hasta internet
+                </p>
+            </div>
+
+            <div class="interactive-demo">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">🚀 Evolución Tecnológica LTE</h3>
+                
+                <button class="demo-button" onclick="toggleLteProcess()">
+                    📱 Ver Evolución 3G → LTE
+                </button>
+                
+                <div class="stp-process" id="lteProcess">
+                    <h4 style="color: #667eea; margin-bottom: 15px;">🔄 Long-Term Evolution Process</h4>
+                    
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div><strong>3G Legacy:</strong> Redes basadas en circuitos conmutados + datos por paquetes</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div><strong>HSPA Evolution:</strong> Mejoras incrementales con HSPA+ (hasta 42 Mbps)</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div><strong>LTE Design:</strong> Arquitectura completamente nueva basada en IP</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div><strong>OFDMA Implementation:</strong> Tecnología de acceso múltiple avanzada</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div><strong>MIMO Deployment:</strong> Múltiples antenas para mayor velocidad</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <div><strong>All-IP Network:</strong> VoLTE reemplaza completamente la voz tradicional</div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px; font-size: 1.2rem; color: #48cab2; font-weight: bold;">
+                        🎉 ¡Evolución completada hacia 4G LTE!
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="problem-scenario" style="margin-top: 30px;">
+                <div class="scenario-card problem">
+                    <h4>⚡ Ventajas Técnicas LTE</h4>
+                    <p>
+                        Mejoras revolucionarias de LTE:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • <strong>Velocidad:</strong> 100x más rápido que 2G<br>
+                        • <strong>Latencia:</strong> 10x menor que 3G<br>
+                        • <strong>Capacidad:</strong> 5x más usuarios por celda<br>
+                        • <strong>Eficiencia:</strong> 3x mejor uso del espectro<br>
+                        • <strong>Cobertura:</strong> Mayor alcance por celda
+                    </p>
+                </div>
+                
+                <div class="scenario-card solution">
+                    <h4>🎯 Comparación vs Alternativas</h4>
+                    <p>
+                        Por qué LTE y no las otras opciones:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • <strong>MPLS:</strong> Red fija, no móvil<br>
+                        • <strong>WiMAX:</strong> Competidor que perdió mercado<br>
+                        • <strong>VSAT:</strong> Satelital, no celular<br>
+                        • <strong>LTE:</strong> ✅ Evolución móvil definitiva
+                    </p>
+                </div>
+            </div>
+
+            <div class="fun-fact">
+                <h4>🎯 Dato Histórico</h4>
+                <p>
+                    LTE fue diseñado como "Long-Term Evolution" porque representaba una estrategia a 10+ años para reemplazar completamente las redes 3G. La primera red LTE comercial se lanzó en Estocolmo y Oslo en 2009. Para 2020, LTE cubría más del 95% de la población mundial, confirmando su éxito como evolución a largo plazo. El término "4G LTE" es técnicamente incorrecto - LTE es la tecnología, 4G es la generación.
+                </p>
+            </div>
+
+            <div class="explanation-section">
+                <h3>💡 ¿Por qué LTE fue revolucionario?</h3>
+                <p>
+                    LTE transformó las comunicaciones móviles porque:
+                </p>
+                <p style="padding-left: 20px;">
+                    🔄 <strong>Evolución planificada:</strong> Diseñado específicamente como transición a largo plazo<br>
+                    📱 <strong>All-IP nativo:</strong> Primera red móvil completamente IP desde el diseño<br>
+                    ⚡ <strong>Velocidad transformacional:</strong> 100x más rápido que generaciones anteriores<br>
+                    🌐 <strong>Convergencia total:</strong> Unificó voz, datos y multimedia en IP<br>
+                    🏗️ <strong>Base para 5G:</strong> Fundación arquitectural para futuras evoluciones
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleLteProcess() {
+            const lteProcess = document.getElementById('lteProcess');
+            const button = document.querySelector('.demo-button');
+            
+            if (lteProcess.classList.contains('active')) {
+                lteProcess.classList.remove('active');
+                button.textContent = '📱 Ver Evolución 3G → LTE';
+                button.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+            } else {
+                lteProcess.classList.add('active');
+                button.textContent = '🔄 Reiniciar Evolución';
+                button.style.background = 'linear-gradient(45deg, #48cab2, #54a0ff)';
+                
+                // Animar los pasos secuencialmente
+                const steps = lteProcess.querySelectorAll('.process-step');
+                steps.forEach((step, index) => {
+                    step.style.animation = 'none';
+                    setTimeout(() => {
+                        step.style.animation = `slideInLeft 0.5s ease forwards`;
+                        step.style.animationDelay = `${index * 0.4}s`;
+                    }, 100);
+                });
+            }
+        }
+
+        // Efectos hover para las tarjetas
+        document.querySelectorAll('.layer-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02) rotateY(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotateY(0deg)';
+            });
+        });
+
+        // Simular evolución de red en el diagrama
+        document.querySelectorAll('.switch').forEach(element => {
+            element.addEventListener('click', function() {
+                if (this.textContent.includes('UE') || this.textContent.includes('Smartphone')) {
+                    // Simular dispositivo LTE
+                    this.style.background = 'linear-gradient(45deg, #11998e, #38ef7d)';
+                    this.style.animation = 'pulse 1s ease';
+                } else if (this.textContent.includes('eNodeB')) {
+                    // Simular estación base LTE
+                    this.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+                    this.style.animation = 'rootPulse 1s ease';
+                } else if (this.textContent.includes('EPC')) {
+                    // Simular core network
+                    this.style.background = 'linear-gradient(45deg, #ff6b6b, #feca57)';
+                    this.style.animation = 'bounce 1s ease';
+                }
+                
+                setTimeout(() => {
+                    this.style.background = '';
+                    this.style.animation = '';
+                }, 2000);
+            });
+        });
+
+        // Simulación de evolución completa
+        let isEvolutionAnimation = false;
+        document.querySelector('.network-diagram').addEventListener('dblclick', function() {
+            if (isEvolutionAnimation) return;
+            
+            isEvolutionAnimation = true;
+            const elements = this.querySelectorAll('.switch, .connection');
+            
+            // Simular evolución 3G → LTE
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    if (el.classList.contains('switch')) {
+                        el.style.background = 'linear-gradient(45deg, #11998e, #38ef7d)';
+                        el.style.transform = 'scale(1.1)';
+                    } else {
+                        el.style.animation = 'dataFlow 2s ease';
+                        el.style.background = 'linear-gradient(to right, #667eea, #11998e)';
+                    }
+                }, index * 200);
+                
+                setTimeout(() => {
+                    el.style.background = '';
+                    el.style.transform = 'scale(1)';
+                    el.style.animation = '';
+                }, 4000);
+            });
+            
+            setTimeout(() => {
+                isEvolutionAnimation = false;
+            }, 5000);
+        });
+
+        // Animación especial para conexiones LTE (mayor velocidad)
+        document.querySelectorAll('.connection').forEach((connection, index) => {
+            connection.addEventListener('click', function() {
+                // Simular alta velocidad LTE
+                this.style.animation = 'dataFlow 0.5s ease-in-out infinite';
+                this.style.background = 'linear-gradient(to bottom, #11998e, #38ef7d)';
+                
+                setTimeout(() => {
+                    this.style.animation = '';
+                    this.style.background = '';
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 8</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="header">
+            <h1>🔌 IEEE 802.3 (Ethernet)</h1>
+            <p>El estándar que define Ethernet y CSMA/CD</p>
+        </div>
+        
+        <div class="content">
+            <div class="answer-badge">
+                ✅ ¡Respuesta Correcta!
+            </div>
+
+            <div class="correct-answer">
+                🎯 IEEE 802.3 (Ethernet)
+            </div>
+            
+            <div class="explanation-section">
+                <h3>¿Qué es IEEE 802.3?</h3>
+                <p>
+                    <strong>IEEE 802.3</strong> es el estándar que define la tecnología Ethernet, incluyendo específicamente el método de acceso al medio <strong>CSMA/CD (Carrier Sense Multiple Access with Collision Detection)</strong> y opera en las capas física y de enlace de datos del modelo OSI.
+                </p>
+                <p>
+                    Este estándar ha sido fundamental en el desarrollo de las redes locales (LAN) y ha evolucionado desde los 10 Mbps originales hasta los 400 Gbps actuales, manteniendo siempre la compatibilidad con el protocolo Ethernet básico.
+                </p>
+            </div>
+
+            <div class="problem-scenario">
+                <div class="scenario-card problem">
+                    <h4>📡 Otros Estándares IEEE 802</h4>
+                    <p>
+                        Comparación con otros estándares:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • <strong>802.11:</strong> Wi-Fi (inalámbrico)<br>
+                        • <strong>802.4:</strong> Token Bus (obsoleto)<br>
+                        • <strong>802.1Q:</strong> VLAN tagging<br>
+                        • <strong>Otros:</strong> No usan CSMA/CD<br>
+                        • Solo 802.3 usa CSMA/CD específicamente
+                    </p>
+                </div>
+                
+                <div class="scenario-card solution">
+                    <h4>🔌 IEEE 802.3 Características</h4>
+                    <p>
+                        Características específicas del estándar:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • <strong>CSMA/CD:</strong> Método de acceso único<br>
+                        • <strong>Capa Física:</strong> Cables, conectores, señales<br>
+                        • <strong>Capa de Enlace:</strong> MAC, formato de tramas<br>
+                        • <strong>Half-Duplex:</strong> Detección de colisiones<br>
+                        • <strong>Evolución continua:</strong> 10M a 400G
+                    </p>
+                </div>
+            </div>
+
+            <div class="network-diagram">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">🔗 CSMA/CD en Acción</h3>
+                
+                <div class="network-visual">
+                    <div class="switch application">PC-A<br>Quiere transmitir</div>
+                    <div class="connection"></div>
+                    <div class="switch transport">Hub<br>Medio compartido</div>
+                    <div class="connection"></div>
+                    <div class="switch internet">PC-B<br>También transmite</div>
+                </div>
+                
+                <div style="margin: 20px 0; padding: 15px; background: #e8f4fd; border-radius: 10px; border-left: 5px solid #48cab2;">
+                    <strong>CSMA/CD:</strong> Carrier Sense (escucha) + Multiple Access (acceso múltiple) + Collision Detection (detecta colisiones)
+                </div>
+                
+                <div class="network-visual" style="margin-top: 30px;">
+                    <div class="switch network">1. Listen<br>Canal libre?</div>
+                    <div class="connection"></div>
+                    <div class="switch application">2. Transmit<br>Enviar datos</div>
+                    <div class="connection blocked">💥</div>
+                    <div class="switch transport">3. Detect<br>¡Colisión!</div>
+                </div>
+                
+                <p style="color: #666; margin-top: 15px;">
+                    ⚡ Proceso: Escucha → Transmite → Detecta colisión → BackOff → Reintenta
+                </p>
+            </div>
+
+            <div class="interactive-demo">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">🚀 Simulación CSMA/CD</h3>
+                <p style="margin-bottom: 20px;">Observa cómo funciona el algoritmo CSMA/CD:</p>
+                
+                <button class="demo-button" onclick="toggleCsmaProcess()">
+                    🔌 Simular CSMA/CD
+                </button>
+                
+                <div class="stp-process" id="csmaProcess">
+                    <h4 style="color: #667eea; margin-bottom: 15px;">📡 Algoritmo CSMA/CD Paso a Paso</h4>
+                    
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div><strong>Carrier Sense:</strong> Escucha el canal para verificar si está libre</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div><strong>Wait if Busy:</strong> Si está ocupado, espera hasta que se libere</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div><strong>Transmit:</strong> Canal libre, comienza la transmisión de datos</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div><strong>Collision Detection:</strong> Mientras transmite, escucha para detectar colisiones</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div><strong>Jam Signal:</strong> Si detecta colisión, envía señal de interferencia</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <div><strong>Exponential BackOff:</strong> Espera tiempo aleatorio antes de reintentar</div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px; font-size: 1.2rem; color: #48cab2; font-weight: bold;">
+                        🎉 ¡Transmisión exitosa sin colisiones!
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="problem-scenario" style="margin-top: 30px;">
+                <div class="scenario-card problem">
+                    <h4>📏 Capas del Modelo OSI</h4>
+                    <p>
+                        IEEE 802.3 opera específicamente en:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • <strong>Capa Física (1):</strong> Señales eléctricas, cables<br>
+                        • <strong>Capa de Enlace (2):</strong> Control de acceso MAC<br>
+                        • <strong>Subcapa MAC:</strong> Direcciones, control de trama<br>
+                        • <strong>Subcapa LLC:</strong> Control de enlace lógico<br>
+                        • Define formato de trama Ethernet
+                    </p>
+                </div>
+                
+                <div class="scenario-card solution">
+                    <h4>🔄 Evolución del Estándar</h4>
+                    <p>
+                        IEEE 802.3 ha evolucionado continuamente:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • <strong>802.3:</strong> 10BASE5 (10 Mbps, coaxial)<br>
+                        • <strong>802.3u:</strong> Fast Ethernet (100 Mbps)<br>
+                        • <strong>802.3z:</strong> Gigabit Ethernet (1000 Mbps)<br>
+                        • <strong>802.3ae:</strong> 10 Gigabit Ethernet<br>
+                        • <strong>Actuales:</strong> Hasta 400 Gigabit Ethernet
+                    </p>
+                </div>
+            </div>
+
+            <div class="fun-fact">
+                <h4>🎯 Dato Histórico</h4>
+                <p>
+                    IEEE 802.3 se publicó por primera vez en 1983, basándose en el Ethernet experimental de Xerox de 1973. El CSMA/CD fue revolucionario porque permitió que múltiples dispositivos compartieran un cable coaxial sin coordinación central. Curiosamente, con la llegada de los switches full-duplex, CSMA/CD ya no se usa en redes modernas, pero el estándar 802.3 sigue siendo la base de todas las implementaciones Ethernet actuales.
+                </p>
+            </div>
+
+
+            <div class="explanation-section">
+                <h3>💡 ¿Por qué IEEE 802.3 es la respuesta?</h3>
+                <p>
+                    IEEE 802.3 es la única opción que cumple todos los criterios de la pregunta:
+                </p>
+                <p style="padding-left: 20px;">
+                    ✅ <strong>Tecnología Ethernet:</strong> Define específicamente Ethernet<br>
+                    ✅ <strong>Método CSMA/CD:</strong> Es el único estándar que usa esta técnica<br>
+                    ✅ <strong>Capa Física:</strong> Define señales, cables y conectores<br>
+                    ✅ <strong>Capa de Enlace:</strong> Control MAC y formato de tramas<br>
+                    🏆 <strong>Coincidencia perfecta:</strong> Todos los elementos de la pregunta
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCsmaProcess() {
+            const csmaProcess = document.getElementById('csmaProcess');
+            const button = document.querySelector('.demo-button');
+            
+            if (csmaProcess.classList.contains('active')) {
+                csmaProcess.classList.remove('active');
+                button.textContent = '🔌 Simular CSMA/CD';
+                button.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+            } else {
+                csmaProcess.classList.add('active');
+                button.textContent = '🔄 Reiniciar Simulación';
+                button.style.background = 'linear-gradient(45deg, #48cab2, #54a0ff)';
+                
+                // Animar los pasos secuencialmente
+                const steps = csmaProcess.querySelectorAll('.process-step');
+                steps.forEach((step, index) => {
+                    step.style.animation = 'none';
+                    setTimeout(() => {
+                        step.style.animation = `slideInLeft 0.5s ease forwards`;
+                        step.style.animationDelay = `${index * 0.4}s`;
+                    }, 100);
+                });
+            }
+        }
+
+        // Efectos hover para las tarjetas
+        document.querySelectorAll('.layer-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02) rotateY(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotateY(0deg)';
+            });
+        });
+
+        // Simular CSMA/CD en el diagrama
+        document.querySelectorAll('.switch').forEach(device => {
+            device.addEventListener('click', function() {
+                if (this.textContent.includes('PC-A') || this.textContent.includes('PC-B')) {
+                    // Simular intento de transmisión
+                    this.style.background = 'linear-gradient(45deg, #ff6b6b, #feca57)';
+                    this.style.animation = 'pulse 0.5s ease';
+                    
+                    // Simular detección de colisión después de un momento
+                    setTimeout(() => {
+                        this.style.background = 'linear-gradient(45deg, #ee5a24, #ff6b6b)';
+                        this.style.animation = 'blockBlink 1s ease';
+                    }, 1000);
+                    
+                    // Volver al estado normal
+                    setTimeout(() => {
+                        this.style.background = '';
+                        this.style.animation = '';
+                    }, 3000);
+                    
+                } else if (this.textContent.includes('Hub')) {
+                    // Simular medio compartido
+                    this.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+                    this.style.animation = 'rootPulse 2s ease';
+                    setTimeout(() => {
+                        this.style.background = '';
+                        this.style.animation = '';
+                    }, 2000);
+                }
+            });
+        });
+
+        // Simular colisión en conexiones
+        document.querySelectorAll('.connection').forEach(conn => {
+            conn.addEventListener('click', function() {
+                if (this.classList.contains('blocked')) {
+                    // Simular colisión detectada
+                    this.style.animation = 'blockBlink 2s ease';
+                    this.style.background = 'linear-gradient(to right, #ee5a24, #ff6b6b)';
+                } else {
+                    // Simular transmisión normal
+                    this.style.animation = 'dataFlow 1s ease';
+                    this.style.background = 'linear-gradient(to right, #11998e, #48cab2)';
+                }
+                
+                setTimeout(() => {
+                    this.style.animation = '';
+                    this.style.background = '';
+                }, 2000);
+            });
+        });
+
+        // Simulación completa CSMA/CD
+        let isCSMADemo = false;
+        document.querySelector('.network-diagram').addEventListener('dblclick', function() {
+            if (isCSMADemo) return;
+            
+            isCSMADemo = true;
+            const devices = this.querySelectorAll('.switch');
+            const connections = this.querySelectorAll('.connection');
+            
+            // Paso 1: Carrier Sense
+            setTimeout(() => {
+                devices.forEach(device => {
+                    if (device.textContent.includes('PC')) {
+                        device.style.background = 'linear-gradient(45deg, #feca57, #ff9f43)';
+                        device.style.animation = 'pulse 1s ease';
+                    }
+                });
+            }, 500);
+            
+            // Paso 2: Transmisión simultánea
+            setTimeout(() => {
+                connections.forEach(conn => {
+                    conn.style.animation = 'dataFlow 1s ease';
+                    conn.style.background = 'linear-gradient(to right, #667eea, #48cab2)';
+                });
+            }, 1500);
+            
+            // Paso 3: Colisión detectada
+            setTimeout(() => {
+                connections.forEach(conn => {
+                    conn.style.animation = 'blockBlink 1s ease';
+                    conn.style.background = 'linear-gradient(to right, #ee5a24, #ff6b6b)';
+                });
+                devices.forEach(device => {
+                    if (device.textContent.includes('PC')) {
+                        device.style.background = 'linear-gradient(45deg, #ee5a24, #ff6b6b)';
+                    }
+                });
+            }, 2500);
+            
+            // Paso 4: BackOff y reintento exitoso
+            setTimeout(() => {
+                // Limpiar estilos de colisión
+                connections.forEach(conn => {
+                    conn.style.animation = '';
+                    conn.style.background = '';
+                });
+                devices.forEach(device => {
+                    device.style.background = '';
+                    device.style.animation = '';
+                });
+                
+                // Simular reintento exitoso
+                setTimeout(() => {
+                    connections.forEach(conn => {
+                        conn.style.animation = 'dataFlow 1s ease';
+                        conn.style.background = 'linear-gradient(to right, #11998e, #38ef7d)';
+                    });
+                    devices.forEach(device => {
+                        if (device.textContent.includes('PC-A')) {
+                            device.style.background = 'linear-gradient(45deg, #11998e, #38ef7d)';
+                            device.style.animation = 'pulse 1s ease';
+                        }
+                    });
+                }, 1000);
+            }, 4000);
+            
+            // Limpiar todo
+            setTimeout(() => {
+                connections.forEach(conn => {
+                    conn.style.animation = '';
+                    conn.style.background = '';
+                });
+                devices.forEach(device => {
+                    device.style.background = '';
+                    device.style.animation = '';
+                });
+                isCSMADemo = false;
+            }, 7000);
+        });
+    </script>
+</body>
+</html>

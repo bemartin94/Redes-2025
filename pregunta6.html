@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta 6</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="header">
+            <h1>🛰️ VSAT (Terminal de Apertura Muy Pequeña)</h1>
+            <p>Conectividad satelital para ubicaciones remotas</p>
+        </div>
+        
+        <div class="content">
+            <div class="answer-badge">
+                ✅ ¡Respuesta Correcta!
+            </div>
+
+            <div class="correct-answer">
+                🎯 VSAT (Terminal de Apertura Muy Pequeña)
+            </div>
+            
+            <div class="explanation-section">
+                <h3>¿Qué es VSAT?</h3>
+                <p>
+                    <strong>VSAT (Very Small Aperture Terminal)</strong> es una tecnología de comunicación satelital que utiliza antenas parabólicas pequeñas (0.75m - 3.8m de diámetro) para establecer enlaces de comunicación de datos, voz e internet.
+                </p>
+                <p>
+                    Es la solución ideal para ubicaciones remotas como pozos petroleros, minas, plataformas marítimas y áreas rurales donde la infraestructura terrestre es limitada o inexistente.
+                </p>
+            </div>
+
+            <div class="problem-scenario">
+                <div class="scenario-card problem">
+                    <h4>🏔️ Desafío de Ubicaciones Remotas</h4>
+                    <p>
+                        En ubicaciones como pozos petroleros:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • Sin infraestructura de fibra óptica<br>
+                        • Terrenos difíciles o inaccesibles<br>
+                        • Distancias enormes a centros urbanos<br>
+                        • Condiciones ambientales extremas<br>
+                        • Necesidad de conectividad confiable
+                    </p>
+                </div>
+                
+                <div class="scenario-card solution">
+                    <h4>🛰️ Solución VSAT</h4>
+                    <p>
+                        VSAT ofrece conectividad global:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • Cobertura geográfica mundial<br>
+                        • Instalación rápida y flexible<br>
+                        • Independiente de infraestructura terrestre<br>
+                        • Servicios de datos, voz e internet<br>
+                        • Conexión punto a punto o punto a multipunto
+                    </p>
+                </div>
+            </div>
+
+            <div class="network-diagram">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">🛰️ Arquitectura VSAT</h3>
+                
+                <div class="network-visual">
+                    <div class="switch application">Hub<br>Central</div>
+                    <div class="connection"></div>
+                    <div class="switch transport">Satélite<br>GEO</div>
+                    <div class="connection"></div>
+                    <div class="switch internet">VSAT<br>Remoto</div>
+                </div>
+                
+                <div style="margin: 20px 0; padding: 15px; background: #e8f4fd; border-radius: 10px; border-left: 5px solid #48cab2;">
+                    <strong>Topología:</strong> Estrella con hub central comunicándose con múltiples VSAT remotos vía satélite
+                </div>
+                
+                <div class="network-visual" style="margin-top: 30px;">
+                    <div class="switch network">Pozo<br>Petrolero A</div>
+                    <div class="connection"></div>
+                    <div class="switch application">Satélite</div>
+                    <div class="connection"></div>
+                    <div class="switch network">Pozo<br>Petrolero B</div>
+                </div>
+                
+                <p style="color: #666; margin-top: 15px;">
+                    📡 Comunicación bidireccional a través de satélite geoestacionario
+                </p>
+            </div>
+
+            <div class="interactive-demo">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">🚀 Proceso de Comunicación VSAT</h3>
+                <p style="margin-bottom: 20px;">Descubre cómo funciona la comunicación satelital:</p>
+                
+                <button class="demo-button" onclick="toggleVsatProcess()">
+                    🛰️ Simular Comunicación VSAT
+                </button>
+                
+                <div class="stp-process" id="vsatProcess">
+                    <h4 style="color: #667eea; margin-bottom: 15px;">📡 Flujo de Comunicación Satelital</h4>
+                    
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div><strong>Uplink:</strong> Terminal VSAT transmite señal al satélite (14 GHz)</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div><strong>Satellite Processing:</strong> Satélite recibe, amplifica y retransmite la señal</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div><strong>Downlink:</strong> Satélite envía señal al hub central (11/12 GHz)</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div><strong>Hub Processing:</strong> Hub central procesa y enruta la información</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div><strong>Return Path:</strong> Respuesta sigue el camino inverso hasta el terminal VSAT</div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <div><strong>End-to-End:</strong> Comunicación bidireccional establecida</div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px; font-size: 1.2rem; color: #48cab2; font-weight: bold;">
+                        🎉 ¡Conectividad global establecida!
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="problem-scenario" style="margin-top: 30px;">
+                <div class="scenario-card problem">
+                    <h4>⚡ Ventajas de VSAT</h4>
+                    <p>
+                        Por qué VSAT es ideal para ubicaciones remotas:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • <strong>Cobertura global:</strong> Cualquier punto bajo el satélite<br>
+                        • <strong>Instalación rápida:</strong> Días vs meses de fibra<br>
+                        • <strong>Flexibilidad:</strong> Fácil reubicación<br>
+                        • <strong>Confiabilidad:</strong> 99.5% de disponibilidad<br>
+                        • <strong>Independencia:</strong> No depende de infraestructura local
+                    </p>
+                </div>
+                
+                <div class="scenario-card solution">
+                    <h4>💰 Consideraciones de Costo</h4>
+                    <p>
+                        Por qué es más costoso pero justificable:
+                    </p>
+                    <p style="margin-top: 15px;">
+                        • <strong>CAPEX alto:</strong> Equipos satelitales especializados<br>
+                        • <strong>OPEX continuo:</strong> Alquiler de segmento satelital<br>
+                        • <strong>Latencia:</strong> ~500ms por la distancia al satélite<br>
+                        • <strong>ROI positivo:</strong> Para ubicaciones sin alternativas<br>
+                        • <strong>Valor agregado:</strong> Operaciones remotas viables
+                    </p>
+                </div>
+            </div>
+
+            <div class="fun-fact">
+                <h4>🎯 Dato de la Industria</h4>
+                <p>
+                    En la industria petrolera, VSAT ha revolucionado las operaciones remotas. Un solo pozo petrolero puede generar millones de dólares diarios, por lo que el costo de conectividad VSAT (típicamente $1,000-$5,000 USD mensuales) se justifica fácilmente. Permite monitoreo en tiempo real, control remoto de equipos, videoconferencias para soporte técnico y transmisión de datos críticos de seguridad y producción.
+                </p>
+            </div>
+
+
+            <div class="explanation-section">
+                <h3>💡 ¿Por qué VSAT para pozos petroleros?</h3>
+                <p>
+                    VSAT es la tecnología preferida para ubicaciones remotas porque:
+                </p>
+                <p style="padding-left: 20px;">
+                    🌍 <strong>Alcance universal:</strong> Funciona donde otras tecnologías no llegan<br>
+                    ⚡ <strong>Despliegue rápido:</strong> Operativo en días, no meses<br>
+                    🔧 <strong>Flexibilidad total:</strong> Se mueve con las operaciones<br>
+                    🛡️ <strong>Confiabilidad probada:</strong> Funciona en condiciones extremas<br>
+                    💼 <strong>ROI justificable:</strong> El costo se compensa con la productividad
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleVsatProcess() {
+            const vsatProcess = document.getElementById('vsatProcess');
+            const button = document.querySelector('.demo-button');
+            
+            if (vsatProcess.classList.contains('active')) {
+                vsatProcess.classList.remove('active');
+                button.textContent = '🛰️ Simular Comunicación VSAT';
+                button.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+            } else {
+                vsatProcess.classList.add('active');
+                button.textContent = '🔄 Reiniciar Simulación';
+                button.style.background = 'linear-gradient(45deg, #48cab2, #54a0ff)';
+                
+                // Animar los pasos secuencialmente
+                const steps = vsatProcess.querySelectorAll('.process-step');
+                steps.forEach((step, index) => {
+                    step.style.animation = 'none';
+                    setTimeout(() => {
+                        step.style.animation = `slideInLeft 0.5s ease forwards`;
+                        step.style.animationDelay = `${index * 0.3}s`;
+                    }, 100);
+                });
+            }
+        }
+
+        // Efectos hover para las tarjetas
+        document.querySelectorAll('.layer-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02) rotateY(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotateY(0deg)';
+            });
+        });
+
+        // Simular comunicación satelital en el diagrama
+        document.querySelectorAll('.switch').forEach(terminal => {
+            terminal.addEventListener('click', function() {
+                if (this.textContent.includes('VSAT') || this.textContent.includes('Pozo')) {
+                    // Simular transmisión desde terminal remoto
+                    this.style.background = 'linear-gradient(45deg, #ff6b6b, #feca57)';
+                    this.style.transform = 'scale(1.1)';
+                    
+                    // Animar el satélite
+                    setTimeout(() => {
+                        const satellites = document.querySelectorAll('[class*="switch"]:not([class*="network"])');
+                        satellites.forEach(sat => {
+                            if (sat.textContent.includes('Satélite') || sat.textContent.includes('GEO')) {
+                                sat.style.background = 'linear-gradient(45deg, #11998e, #38ef7d)';
+                                sat.style.animation = 'rootPulse 1s ease';
+                            }
+                        });
+                    }, 500);
+                    
+                    // Resetear estilos
+                    setTimeout(() => {
+                        this.style.background = '';
+                        this.style.transform = 'scale(1)';
+                        document.querySelectorAll('.switch').forEach(s => {
+                            s.style.background = '';
+                            s.style.animation = '';
+                        });
+                    }, 2000);
+                    
+                } else if (this.textContent.includes('Hub')) {
+                    // Simular respuesta del hub central
+                    this.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+                    this.style.animation = 'pulse 1s ease';
+                    setTimeout(() => {
+                        this.style.background = '';
+                        this.style.animation = '';
+                    }, 1500);
+                }
+            });
+        });
+
+        // Animación especial para conexiones satelitales
+        document.querySelectorAll('.connection').forEach((connection, index) => {
+            connection.addEventListener('click', function() {
+                // Simular señal viajando al espacio (más lenta)
+                this.style.animation = 'dataFlow 3s ease';
+                this.style.background = 'linear-gradient(to bottom, #667eea, #11998e)';
+                setTimeout(() => {
+                    this.style.animation = '';
+                    this.style.background = '';
+                }, 3000);
+            });
+        });
+
+        // Efecto orbital en el diagrama completo
+        let isOrbitAnimation = false;
+        document.querySelector('.network-diagram').addEventListener('dblclick', function() {
+            if (isOrbitAnimation) return;
+            
+            isOrbitAnimation = true;
+            const satellites = this.querySelectorAll('.switch');
+            
+            // Simular órbita satelital
+            satellites.forEach(sat => {
+                if (sat.textContent.includes('Satélite') || sat.textContent.includes('GEO')) {
+                    sat.style.animation = 'rootPulse 3s infinite';
+                    sat.style.background = 'linear-gradient(45deg, #11998e, #38ef7d)';
+                }
+            });
+            
+            // Simular comunicaciones múltiples
+            const connections = this.querySelectorAll('.connection');
+            connections.forEach((conn, index) => {
+                setTimeout(() => {
+                    conn.style.animation = 'dataFlow 2s ease infinite';
+                }, index * 500);
+            });
+            
+            setTimeout(() => {
+                satellites.forEach(sat => {
+                    sat.style.animation = '';
+                    sat.style.background = '';
+                });
+                connections.forEach(conn => {
+                    conn.style.animation = '';
+                });
+                isOrbitAnimation = false;
+            }, 8000);
+        });
+    </script>
+</body>
+</html>
